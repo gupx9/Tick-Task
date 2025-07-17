@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional photography portfolio">
+    <title>Tick-Task</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/clock.png" type="image/png">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- internal css for all basic texts -->
+    <style>
+        body {
+            background-color: #f2e8d6;
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #3d2b1f;
+        }
+
+        .text-content {
+            padding: 1.5rem 2rem;
+
+        }
+
+        .box {
+            width: 100%;
+            color: #E07B39;
+            background-color: #1a1a1a;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        header {
+            text-align: center;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            font-family: 'Fredoka One', cursive;
+            text-shadow: 1px 1px 0 #000000;
+            letter-spacing: 1px
+        }
+        .navbar {
+            text-align: center;
+            padding: 0.5rem 0;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link {
+            color: #f2e8d6;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background-color: #8e4e23;
+            border-radius: 15px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: rgb(92, 31, 3);
+            transform: scale(1.05);
+        }
+        footer { 
+            text-align: center;
+            padding: 0.5rem 1rem;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .fortune-box {
+            border: 2px solid black;
+            background-color: #59564d48;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        input[type="email"], /*[] is for input fields*/
+        textarea {
+            display: block;
+            width: 50%;
+            max-width: 500px;        /*limits size on large screens*/
+            margin: 0.5rem auto;
+            padding: 0.5rem;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1rem;
+            border: 2px solid #8e4e23;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #fdf6e3;
+            color: #3d2b1f;
+        }
+
+        input[type="message"], /*[] is for input fields*/
+        textarea {
+            display: block;
+            width: 50%;
+            max-width: 500px;        /*limits size on large screens*/
+            margin: 0.5rem auto;
+            padding: 0.5rem;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1rem;
+            border: 2px solid #8e4e23;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #fdf6e3;
+            color: #3d2b1f;
+        }
+
+        button[type="submit"] {  /*[] is for input fields*/
+            display: block;
+            margin: 0.5rem auto;
+            background-color: #8e4e23;
+            color: #f2e8d6;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            font-family: 'Fredoka One', cursive;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #5c1f03;
+            transform: scale(1.05);
+        }
+        .fortune-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* wrap is for phone views */
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .color-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .color-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 40px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .color-button:hover {
+            transform: scale(1.1);
+        }
+
+        .green-btn {
+            background-color: #134e4a;
+        }
+
+        .yellow-btn {
+            background-color: #fff89a;
+        }
+
+        .blue-btn {
+            background-color: #001f3f;
+        }
+
+        .orange-btn {
+            background-color: #F9A825;
+        }
+        .container {
+            text-align: center;
+            padding: 1rem 2rem;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            font-family: 'Fredoka One', cursive;
+            text-shadow: 1px 1px 0 #000000;
+            letter-spacing: 1px
+        }
+        input[type="text"], /*[] is for input fields*/
+        textarea {
+            display: block;
+            width: 50%;
+            max-width: 500px;        /*limits size on large screens*/
+            margin: 0.5rem auto;
+            padding: 0.5rem;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1rem;
+            border: 2px solid #8e4e23;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #fdf6e3;
+            color: #3d2b1f;
+        }
+        .list {
+            background-color: #5b3e2b5f;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            text-align: left
+        }
+
+        </style>
+</head>
+<body>
+    <header class = "box">
+        <h1 style="font-family: 'Fredoka One', cursive; font-size: 6rem;">Tick-Task</h1>
+        <!-- inline-->
+        <p class="nav" style="color: #f2e8d6; font-size: 1.5rem;">
+            Your Daily Dose of Inspiration and Productivity
+        </p>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#stopwatch" class="nav-link">🕔 Stop Watch ⏳</a></li>
+                <li><a href="#todo_list" class="nav-link">📝 To-Do List 🗓️</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div style="padding: 1.5rem 2rem;">
+            <h2>So, what's Tick-Task ?</h2>
+            <img src="https://static.wikia.nocookie.net/disney/images/c/c1/Miss_Minutes_%28Cell_Shade%29.png/revision/latest?cb=20210622012731" alt="Miss Minutes from the MCU series Loki" width="150" height="150" style="margin-left: 2rem;">
+                <div class="text-content">
+                    <p>
+                    <strong>Tick-task</strong> — your handy sidekick to help you stay chill, get stuff done, and keep the good vibes flowing!  
+                    Jot down your to-dos, keep an eye on the clock with our cool stopwatch, and get a fresh, random quote to brighten your day every time you drop by.  
+                    Whether you're planning your day or just need a little boost, <strong>tick-task</strong> makes productivity easy and fun!
+                    </p>
+                    <blockquote>
+                    "Small steps every day lead to big achievements tomorrow."<br>
+                    <cite>&mdash; tick-task Team</cite>
+                    </blockquote>
+                </div>
+        </div>
+
+        <section id="stopwatch">
+            <div class = "container">
+                <h2>Stopwatch</h2>
+                <p class="time">
+                    <span id="minutes" style="font-size: 5rem;">00</span>:
+                    <span id="seconds" style="font-size: 5rem;">00</span>:
+                    <span id="tens" style="font-size: 5rem;">00</span>
+                </p>
+                <button id="start" type ="submit">Start</button>
+                <button id="stop" type ="submit">Stop</button>
+                <button id="reset" type ="submit">Reset</button>
+            </div>
+        </section>
+
+
+        <section id="todo_list">
+            <div class = "container">
+                <h2>To-Do List</h2>
+                <input type="text" id="taskInput" placeholder="Enter your task">
+                <button onclick="addTask()" type ="submit">Add Task</button>
+                <ol id="taskList" class = "list" style="font-family: 'Baloo 2', cursive;"></ol>
+            </div>
+        </section>
+        
+        <!-- to get buttons side by side we use flex in css-->
+        <div class="fortune-area">
+        <!-- ids cant have spaces -->
+            <div id="fortune-generator" class="fortune-box"></div>
+            <div class="color-buttons">
+                <!-- multiple classes can be called from style -->
+                <button class="color-button green-btn" onclick="changeToGreen()"></button>
+                <button class="color-button yellow-btn" onclick="changeToYellow()"></button>
+                <button class="color-button blue-btn" onclick="changeToBlue()"></button>
+                <button class="color-button orange-btn" onclick="changeToOrange()"></button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class = "box">
+        <!-- form - user data from website - post -->
+        <form action="https://formspree.io/f/xpwrevrz" method="POST">
+            <label>
+                <strong>Would love to hear your suggestions !!!</strong><br>
+                <input type="email" placeholder="Enter your e-mail">
+            </label>
+            <br>
+            <label>
+                <input type="text" placeholder="Any queries?">
+            </label>
+            <button type="submit">Send</button>
+            </form>
+            <br>
+        <div style="text-align: center;">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muhtasim.faiyaz.khan@g.bracu.ac.bd" target="_blank"><i class="fa fa-envelope" style="font-size:48px;color:rgb(151, 6, 6)"></i></a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/mfa02082024/" target="_blank"><i class="fab fa-linkedin-in fa-2x" style="font-size:48px;color:rgb(12, 65, 224)"></i></a>&nbsp;&nbsp;
+            <a href="https://github.com/gupx9" target="_blank"><i class="fab fa-github fa-2x" style="font-size:48px;color:rgb(70, 31, 227)"></i></a>&nbsp;&nbsp;
+            <a href="https://www.facebook.com/muhtasim.41218" target="_blank"><i class="fab fa-facebook-f fa-2x" style="font-size:48px;color: rgb(28, 59, 232)"></i></a><br>
+        </div>
+        <p><b>&copy;<span id="year"></span> Muhtasim Faiyaz Khan. All rights reserved.</b></p>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {     //top eo rakha jay
+        let seconds = 0;        // seconds passed (in multiples of 3)
+        let tens = 0;           // counts 10ms ticks internally to control time flow
+        let minutes = 0;        // optional, for minutes display if needed
+        // store variables by IDS
+        let appendMinutes = document.querySelector("#minutes");
+        let appendSeconds = document.querySelector("#seconds");
+        let appendTens = document.querySelector("#tens");
+
+        let startBtn = document.querySelector("#start");
+        let stopBtn = document.querySelector("#stop");
+        let resetBtn = document.querySelector("#reset");
+
+        let Interval;
+        //same as return "0" + str(number) if number < 10 else str(number)
+        function format(number) {
+            if (number < 10) {
+                return "0" + number;}
+            else {return number;}
+        }
+
+        const startTimer = () => {
+            //Clear any previous timer so no double intervals run
+            clearInterval(Interval);
+
+            Interval = setInterval(() => {
+                tens++;
+                //300 hundredths of a second = 3 seconds
+                if (tens >= 300) {
+                    tens = 0;
+                    seconds += 3;
+
+                    //Update display
+                    appendSeconds.innerHTML = format(seconds);
+                    appendTens.innerHTML = "00";
+                    // Stops automatically at 30 seconds total
+                    if (seconds >= 30) {clearInterval(Interval); }
+                }
+                else {appendTens.innerHTML = format(tens);}
+            }, 10); //every 0.1s e repeat
+        };
+
+        startBtn.onclick = () => {startTimer();};
+
+        stopBtn.onclick = () => {clearInterval(Interval);};
+
+        resetBtn.onclick = () => {
+            clearInterval(Interval);
+            tens = 0;
+            seconds = 0;
+            minutes = 0;
+            appendMinutes.innerHTML = "00";
+            appendSeconds.innerHTML = "00";
+            appendTens.innerHTML = "00";
+        };
+    });
+
+    </script>
+    <script>
+        let quotes = [
+        "Focus on progress, not perfection—small steps move mountains.",
+        "Your task list doesn't define your worth. Rest is part of the process.",
+        "Energy, not time, is your true currency. Protect it wisely.",
+        "Start with what feels easiest—momentum will carry you forward.",
+        "Overwhelm is a signal to simplify, not to quit.",
+        "The work you avoid today becomes tomorrow's burden—face it gently now.",
+        "Celebrate tasks completed, no matter how small. Wins fuel motivation.",
+        "It's okay to slow down. Sustainable effort beats rushed burnout.",
+        "Your future self is quietly cheering you on—keep moving.",
+        "Perfection delays progress. Embrace 'done' over 'flawless'.",
+        "One focused hour is better than five distracted ones.",
+        "Pause, breathe, prioritize. The chaos feels bigger than it is.",
+        "Choose meaningful tasks over busy tasks today.",
+        "Consistency builds trust—with yourself. Show up, even if briefly.",
+        "You're closer to balance than you think. Keep adjusting."];
+
+        function displayquotes(){
+            let index = Math.floor(Math.random()*quotes.length);
+            let selected = quotes[index];
+            document.getElementById("fortune-generator").innerHTML = selected;
+        }
+        function changeToGreen() {
+            let box = document.getElementById("fortune-generator");
+            box.style.backgroundColor = "#134e4a";        // Jungle green
+            box.style.color = "#fff9e3";                  // Soft cream
+            box.style.border = "3px solid #5f0f40";       // Royal purple
+            box.style.fontFamily = "'Courier New', monospace";
+            box.style.fontSize = "1.7rem";
+        }
+
+        function changeToYellow() {
+            let box = document.getElementById("fortune-generator");
+            box.style.backgroundColor = "#fff89a";       // Soft yellow
+            box.style.color = "#5c1f03";                 // Deep brown
+            box.style.border = "3px solid #e07b39";      // Warm orange
+            box.style.fontFamily = "'Lucida Console', monospace";
+            box.style.fontSize = "1.3rem";
+        }
+        function changeToBlue() {
+            let box = document.getElementById("fortune-generator");
+            box.style.backgroundColor = "#001f3f";          // Dark navy blue
+            box.style.color = "#e0e0e0";                    // Soft mist grey
+            box.style.border = "3px solid #ffbf00";         // Warm amber
+            box.style.fontFamily = "'Brush Script MT', cursive";
+            box.style.fontSize = "1.5rem";
+        }
+
+        function changeToOrange() {
+            let box = document.getElementById("fortune-generator");
+            box.style.backgroundColor = "#F9A825";          // Warm amber-orange
+            box.style.color = "#073763";                     // Soft navy-blue
+            box.style.border = "3px solid #8B4513";          // Saddle brown
+            box.style.fontFamily = "'Poppins', 'Trebuchet MS', sans-serif";
+            box.style.fontSize = "1.9rem";
+        }
+
+        window.addEventListener('load', displayquotes); //bottom eo rakha jay
+    </script>
+
+    <script>
+        let tasks = [];
+        //Load tasks when page loads
+        //same as
+        // if "tasks" in localStorage:
+        //     tasks = json.loads(localStorage["tasks"])
+        window.addEventListener("load", function() {
+            if (localStorage.getItem("tasks")) {
+                tasks = JSON.parse(localStorage.getItem("tasks")); //parse -->json loads
+                displayTasks();
+            }
+        });
+
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let taskText = input.value.trim(); // trim --> strip
+
+            if (taskText === "") return;
+
+            let task = {text: taskText,completed: false}; //object (dictionary with text + completed status)
+
+            tasks.push(task);
+            saveTasks();
+            displayTasks();
+            input.value = ""; // clear input box
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1); // .pop() ----> splice
+            saveTasks();
+            displayTasks();
+        }
+
+        function toggleComplete(index) {
+            tasks[index].completed = !tasks[index].completed; //tasks[index]["completed"] = not tasks[index]["completed"]
+            saveTasks();
+            displayTasks();
+        }
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks)); //convert to string and save
+        }
+
+        function displayTasks() {
+            let list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+
+                let checkbox = document.createElement("input");
+
+                checkbox.type = "checkbox";
+                checkbox.checked = task.completed;
+                checkbox.onchange = function() { toggleComplete(index); };
+
+                let span = document.createElement("span");
+                span.textContent = task.text;
+
+                if (task.completed) { span.style.textDecoration = "line-through";} //done? then line cuts
+
+
+                let deleteBtn = document.createElement("button"); //every task add e ekta kore dlt button
+                deleteBtn.textContent = "❌";
+                deleteBtn.onclick = function() { deleteTask(index); };
+
+                li.appendChild(checkbox);
+                li.appendChild(span);
+                li.appendChild(deleteBtn);
+
+                list.appendChild(li);
+            });
+        }
+
+    </script>
+
+</body>
+</html>

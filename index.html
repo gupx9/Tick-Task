@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional photography portfolio">
+    <meta name="description" content="TicTask for daily motivation and productivity">
     <title>Tick-Task</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
     <link rel="icon" href="images/clock.png" type="image/png">
-    <!-- icon -->
+    <!-- icons for media -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- internal css for all basic texts -->
+    
+
     <style>
         body {
-            background-color: #f2e8d6;
+            background-color: #f2e8d6; 
             font-family: 'Baloo 2', cursive;
             font-weight: 500;
             font-size: 1.2rem;
@@ -58,7 +61,7 @@
         }
 
         .nav-list li {
-            display: inline-block;
+            display: inline-block;  /*side by side */
             margin: 0 0.5rem;
         }
 
@@ -125,7 +128,7 @@
         }
 
         button[type="submit"] {  /*[] is for input fields*/
-            display: block;
+            display: inline-block;
             margin: 0.5rem auto;
             background-color: #8e4e23;
             color: #f2e8d6;
@@ -142,6 +145,10 @@
             background-color: #5c1f03;
             transform: scale(1.05);
         }
+        /* .button-group button {
+            display: inline-block;
+            margin: 0.3rem 0.5rem;
+        } */
         .fortune-area {
             display: flex;
             justify-content: center;
@@ -194,6 +201,7 @@
             text-shadow: 1px 1px 0 #000000;
             letter-spacing: 1px
         }
+
         input[type="text"], /*[] is for input fields*/
         textarea {
             display: block;
@@ -216,7 +224,7 @@
             text-align: left
         }
 
-        </style>
+    </style>
 </head>
 <body>
     <header class = "box">
@@ -236,7 +244,7 @@
     <main>
         <div style="padding: 1.5rem 2rem;">
             <h2>So, what's Tick-Task ?</h2>
-            <img src="https://static.wikia.nocookie.net/disney/images/c/c1/Miss_Minutes_%28Cell_Shade%29.png/revision/latest?cb=20210622012731" alt="Miss Minutes from the MCU series Loki" width="150" height="150" style="margin-left: 2rem;">
+            <img src="images/mm.png" alt="Miss Minutes from the MCU series Loki" type="image/png" width="150" height="150" style="margin-left: 2rem;">
                 <div class="text-content">
                     <p>
                     <strong>Tick-task</strong> — your handy sidekick to help you stay chill, get stuff done, and keep the good vibes flowing!  
@@ -258,9 +266,11 @@
                     <span id="seconds" style="font-size: 5rem;">00</span>:
                     <span id="tens" style="font-size: 5rem;">00</span>
                 </p>
-                <button id="start" type ="submit">Start</button>
-                <button id="stop" type ="submit">Stop</button>
-                <button id="reset" type ="submit">Reset</button>
+                <div class="button-group">
+                    <button id="start" type ="submit">Start</button>
+                    <button id="stop" type ="submit">Stop</button>
+                    <button id="reset" type ="submit">Reset</button>
+                </div>
             </div>
         </section>
 
@@ -342,7 +352,7 @@
                 tens++;
                 //300 hundredths of a second = 3 seconds
                 if (tens >= 300) {
-                    tens = 0;
+                    tens = 0; //theke start
                     seconds += 3;
 
                     //Update display

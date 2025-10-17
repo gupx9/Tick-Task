@@ -109,65 +109,56 @@
     </footer>
 
     <script>
-        window.addEventListener('load', function() {     //top eo rakha jay
-        let seconds = 0;        // seconds passed (in multiples of 3)
-        let tens = 0;           // counts 10ms ticks internally to control time flow
-        let minutes = 0;        // optional, for minutes display if needed
-        // store variables by IDS
-        let appendMinutes = document.querySelector("#minutes");
-        let appendSeconds = document.querySelector("#seconds");
-        let appendTens = document.querySelector("#tens");
-
-        let startBtn = document.querySelector("#start");
-        let stopBtn = document.querySelector("#stop");
-        let resetBtn = document.querySelector("#reset");
-
+    window.addEventListener('load', function() {
+        let tens = 0;      // hundredths of a second
+        let seconds = 0;
+        let minutes = 0;
         let Interval;
-        //same as return "0" + str(number) if number < 10 else str(number)
-        function format(number) {
-            if (number < 10) {
-                return "0" + number;}
-            else {return number;}
+    
+        // DOM elements
+        const appendMinutes = document.getElementById("minutes");
+        const appendSeconds = document.getElementById("seconds");
+        const appendTens = document.getElementById("tens");
+    
+        const startBtn = document.getElementById("start");
+        const stopBtn = document.getElementById("stop");
+        const resetBtn = document.getElementById("reset");
+    
+        function format(num) {
+            return num < 10 ? "0" + num : num;
         }
-
-        const startTimer = () => {
-            //Clear any previous timer so no double intervals run
+    
+        function startTimer() {
             clearInterval(Interval);
-
             Interval = setInterval(() => {
                 tens++;
-                //300 hundredths of a second = 3 seconds
-                if (tens >= 300) {
-                    tens = 0; //theke start
-                    seconds += 3;
-
-                    //Update display
-                    appendSeconds.innerHTML = format(seconds);
-                    appendTens.innerHTML = "00";
-                    // Stops automatically at 30 seconds total
-                    if (seconds >= 30) {clearInterval(Interval);
-                     }
+                if (tens > 99) { // 100 hundredths = 1 second
+                    tens = 0;
+                    seconds++;
                 }
-                else {appendTens.innerHTML = format(tens);}
-            }, 0.1); //every 0.1s e repeat
-        };
-
-        startBtn.onclick = () => {startTimer();};
-
-        stopBtn.onclick = () => {clearInterval(Interval);};
-
+                if (seconds > 59) {
+                    seconds = 0;
+                    minutes++;
+                }
+    
+                appendTens.textContent = format(tens);
+                appendSeconds.textContent = format(seconds);
+                appendMinutes.textContent = format(minutes);
+            }, 10); // every 10ms (0.01 second)
+        }
+    
+        startBtn.onclick = () => startTimer();
+        stopBtn.onclick = () => clearInterval(Interval);
         resetBtn.onclick = () => {
             clearInterval(Interval);
-            tens = 0;
-            seconds = 0;
-            minutes = 0;
-            appendMinutes.innerHTML = "00";
-            appendSeconds.innerHTML = "00";
-            appendTens.innerHTML = "00";
+            tens = 0; seconds = 0; minutes = 0;
+            appendMinutes.textContent = "00";
+            appendSeconds.textContent = "00";
+            appendTens.textContent = "00";
         };
     });
-
     </script>
+
     <script>
         let quotes = [
         "Focus on progress, not perfection—small steps move mountains.",
